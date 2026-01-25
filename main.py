@@ -1,6 +1,5 @@
 
-from fastapi import FastAPI
-from typing import List, Dict
+from fastapi import FastAPI, HTTPException
 
 app = FastAPI(
     title="WhatsApp Stickers API",
@@ -67,6 +66,14 @@ def get_stickers(sort: str = "popularity", page_size: int = 10):
     - **sort**: Campo por el cual ordenar (popularity, name, id)
     - **page_size**: Número de stickers a retornar
     """
+    # Validate sort parameter
+    valid_sorts = ["popularity", "name", "id"]
+    if sort not in valid_sorts:
+        raise HTTPException(
+            status_code=400, 
+            detail=f"Invalid sort field. Must be one of: {', '.join(valid_sorts)}"
+        )
+    
     # Determine sorting order based on field type
     if sort == "name":
         # Sort strings alphabetically (ascending)
