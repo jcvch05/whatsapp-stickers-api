@@ -67,5 +67,12 @@ def get_stickers(sort: str = "popularity", page_size: int = 10):
     - **sort**: Campo por el cual ordenar (popularity, name, id)
     - **page_size**: Número de stickers a retornar
     """
-    sorted_stickers = sorted(stickers, key=lambda x: x.get(sort, 0), reverse=True)
+    # Determine sorting order based on field type
+    if sort == "name":
+        # Sort strings alphabetically (ascending)
+        sorted_stickers = sorted(stickers, key=lambda x: x.get(sort, ""), reverse=False)
+    else:
+        # Sort numbers (popularity, id) in descending order (highest first)
+        sorted_stickers = sorted(stickers, key=lambda x: x.get(sort, 0), reverse=True)
+    
     return {"items": sorted_stickers[:page_size]}
