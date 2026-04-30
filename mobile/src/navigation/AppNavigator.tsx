@@ -1,0 +1,111 @@
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Text, View, StyleSheet } from 'react-native';
+import { RootStackParamList, MainTabsParamList } from '../types';
+import { CalculatorScreen } from '../screens/CalculatorScreen';
+import { ResultScreen } from '../screens/ResultScreen';
+import { ProductsScreen } from '../screens/ProductsScreen';
+import { AgreementsScreen } from '../screens/AgreementsScreen';
+import { AboutScreen } from '../screens/AboutScreen';
+import { COLORS } from '../styles/theme';
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
+const Tab = createBottomTabNavigator<MainTabsParamList>();
+
+function TabIcon({ icon, label, focused }: { icon: string; label: string; focused: boolean }) {
+  return (
+    <View style={tabIconS.container}>
+      <Text style={[tabIconS.icon, focused && tabIconS.iconFocused]}>{icon}</Text>
+      <Text style={[tabIconS.label, focused && tabIconS.labelFocused]}>{label}</Text>
+    </View>
+  );
+}
+
+const tabIconS = StyleSheet.create({
+  container: { alignItems: 'center', paddingTop: 4 },
+  icon: { fontSize: 22 },
+  iconFocused: { transform: [{ scale: 1.1 }] },
+  label: { fontSize: 10, color: COLORS.tabInactive, marginTop: 2, fontWeight: '500' },
+  labelFocused: { color: COLORS.tabActive, fontWeight: '700' },
+});
+
+function MainTabs() {
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+        tabBarStyle: {
+          backgroundColor: COLORS.white,
+          borderTopColor: '#E5E5E5',
+          borderTopWidth: 1,
+          height: 65,
+          paddingBottom: 8,
+        },
+        tabBarShowLabel: false,
+      }}
+    >
+      <Tab.Screen
+        name="Calculator"
+        component={CalculatorScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <TabIcon icon="⚖️" label="Calcular" focused={focused} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Products"
+        component={ProductsScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <TabIcon icon="📦" label="Partidas" focused={focused} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Agreements"
+        component={AgreementsScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <TabIcon icon="🤝" label="Acuerdos" focused={focused} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="About"
+        component={AboutScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <TabIcon icon="ℹ️" label="Info" focused={focused} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
+}
+
+export function AppNavigator() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="MainTabs"
+          component={MainTabs}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Result"
+          component={ResultScreen}
+          options={{
+            title: 'Resultado del Cálculo',
+            headerStyle: { backgroundColor: COLORS.primary },
+            headerTintColor: COLORS.white,
+            headerTitleStyle: { fontWeight: '700' },
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
