@@ -17,7 +17,8 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList, Currency, CIFLocation, Product, Country } from '../types';
 import { PRODUCTS, searchProducts } from '../data/products';
 import { COUNTRIES } from '../data/countries';
-import { calculateTaxes, BCB_EXCHANGE_RATE } from '../utils/calculator';
+import { BCB_EXCHANGE_RATE } from '../utils/calculator';
+import { calculateTaxesWithKB } from '../utils/calculatorWithKB';
 import { COLORS, SPACING, RADIUS } from '../styles/theme';
 
 type NavProp = NativeStackNavigationProp<RootStackParamList, 'MainTabs'>;
@@ -32,6 +33,7 @@ export function CalculatorScreen() {
   const [cifLocation, setCifLocation] = useState<CIFLocation>('LA_PAZ');
   const [fleteValue, setFleteValue] = useState('');
 
+  const [loading, setLoading] = useState(false);
   const [productModal, setProductModal] = useState(false);
   const [countryModal, setCountryModal] = useState(false);
   const [productSearch, setProductSearch] = useState('');
@@ -58,21 +60,23 @@ export function CalculatorScreen() {
     !isNaN(parseFloat(cifValue)) &&
     parseFloat(cifValue) > 0;
 
-  function handleCalculate() {
+  async function handleCalculate() {
     if (!canCalculate || !selectedProduct || !selectedCountry) return;
-
-    const flete = fleteValue ? parseFloat(fleteValue) : undefined;
-
-    const result = calculateTaxes({
-      product: selectedProduct,
-      country: selectedCountry,
-      cifValue: parseFloat(cifValue),
-      cifCurrency,
-      cifLocation,
-      fleteAricaLaPaz: flete,
-    });
-
-    navigation.navigate('Result', { result });
+    setLoading(true);
+    try {
+      const flete = fleteValue ? parseFloat(fleteValue) : undefined;
+      const { result, enrichment } = await calculateTaxesWithKB({
+        product: selectedProduct,
+        country: selectedCountry,
+        cifValue: parseFloat(cifValue),
+        cifCurrency,
+        cifLocation,
+        fleteAricaLaPaz: flete,
+      });
+      navigation.navigate('Result', { result, enrichment });
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -218,11 +222,13 @@ export function CalculatorScreen() {
 
           {/* Botón calcular */}
           <TouchableOpacity
-            style={[styles.calcBtn, !canCalculate && styles.calcBtnDisabled]}
+            style={[styles.calcBtn, (!canCalculate || loading) && styles.calcBtnDisabled]}
             onPress={handleCalculate}
-            disabled={!canCalculate}
+            disabled={!canCalculate || loading}
           >
-            <Text style={styles.calcBtnText}>⚖️  Calcular Impuestos</Text>
+            <Text style={styles.calcBtnText}>
+              {loading ? '🔄  Consultando KB…' : '⚖️  Calcular Impuestos'}
+            </Text>
           </TouchableOpacity>
 
           <Text style={styles.footer}>

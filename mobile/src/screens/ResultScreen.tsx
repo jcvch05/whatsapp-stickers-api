@@ -19,7 +19,7 @@ type RouteP = RouteProp<RootStackParamList, 'Result'>;
 export function ResultScreen() {
   const navigation = useNavigation();
   const route = useRoute<RouteP>();
-  const { result } = route.params as { result: CalculationResult };
+  const { result, enrichment } = route.params as { result: CalculationResult; enrichment?: { kbUsed: boolean; kbSource: string } };
   const { input, taxes } = result;
   const { product, country, cifCurrency, cifLocation } = input;
 
@@ -31,6 +31,13 @@ export function ResultScreen() {
   return (
     <SafeAreaView style={styles.safe}>
       <ScrollView contentContainerStyle={styles.container}>
+        {/* Badge KB */}
+        {enrichment?.kbUsed && (
+          <View style={styles.kbBadge}>
+            <Text style={styles.kbBadgeText}>🔄 Datos actualizados desde KB · {enrichment.kbSource}</Text>
+          </View>
+        )}
+
         {/* Header resultado */}
         <View style={[styles.totalCard, taxes.taxExempt && styles.totalCardGreen]}>
           <Text style={styles.totalLabel}>TOTAL A PAGAR</Text>
@@ -302,6 +309,16 @@ const styles = StyleSheet.create({
     borderColor: COLORS.border,
   },
   backBtnText: { fontSize: 15, fontWeight: '600', color: COLORS.textPrimary },
+
+  kbBadge: {
+    backgroundColor: '#F0FDF4',
+    borderRadius: RADIUS.md,
+    padding: 10,
+    marginBottom: 10,
+    borderLeftWidth: 3,
+    borderLeftColor: COLORS.success,
+  },
+  kbBadgeText: { fontSize: 11, color: COLORS.success, fontWeight: '600' },
 
   disclaimer: {
     fontSize: 11,

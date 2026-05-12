@@ -69,9 +69,16 @@ export interface CalculationResult {
   taxes: TaxBreakdown;
 }
 
+export interface KBEnrichment {
+  decretos: { numero: string; titulo: string }[];
+  gaRateFromKB: number | null;
+  kbUsed: boolean;
+  kbSource: string;
+}
+
 export type RootStackParamList = {
   MainTabs: undefined;
-  Result: { result: CalculationResult };
+  Result: { result: CalculationResult; enrichment?: KBEnrichment };
 };
 
 export type MainTabsParamList = {
