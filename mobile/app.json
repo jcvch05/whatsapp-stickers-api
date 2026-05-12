@@ -1,5 +1,6 @@
 {
   "expo": {
+    "newArchEnabled": false,
     "name": "Aforito Aduanas",
     "slug": "aforito-aduanas",
     "version": "1.0.0",
