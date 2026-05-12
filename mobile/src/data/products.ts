@@ -12,8 +12,8 @@ export const PRODUCTS: Product[] = [
     ice_rate: 0,
     permits: ['Homologación ATT (Autoridad de Regulación y Fiscalización de Telecomunicaciones)'],
     observations:
-      'GA 0% por Decreto Supremo 2026 (Línea Negra). Debe presentar certificado de homologación ante la ATT. Hasta 2 unidades para uso personal puede importarse con franquicia.',
-    normativa: ['Decreto Supremo 2026 — Línea Negra (GA 0%)', 'RA-ANT-DGDE 1089/2019 ATT', 'Decreto Supremo 3814'],
+      'GA 0% por Decreto Supremo N° 5516 (Línea Negra). Debe presentar certificado de homologación ante la ATT. Hasta 2 unidades para uso personal puede importarse con franquicia.',
+    normativa: ['Decreto Supremo N° 5516 — Línea Negra (GA 0%)', 'RA-ANT-DGDE 1089/2019 ATT', 'Decreto Supremo 3814'],
   },
   {
     id: 'tablet',
@@ -24,8 +24,8 @@ export const PRODUCTS: Product[] = [
     ga_rate: 0,
     ice_rate: 0,
     permits: [],
-    observations: 'GA 0% por Decreto Supremo 2026 (Línea Negra). Sin permisos especiales para importación personal o comercial.',
-    normativa: ['Decreto Supremo 2026 — Línea Negra (GA 0%)'],
+    observations: 'GA 0% por Decreto Supremo N° 5516 (Línea Negra). Sin permisos especiales para importación personal o comercial.',
+    normativa: ['Decreto Supremo N° 5516 — Línea Negra (GA 0%)'],
   },
   {
     id: 'laptop',
@@ -36,8 +36,8 @@ export const PRODUCTS: Product[] = [
     ga_rate: 0,
     ice_rate: 0,
     permits: [],
-    observations: 'GA 0% por Decreto Supremo 2026 (Línea Negra).',
-    normativa: ['Decreto Supremo 2026 — Línea Negra (GA 0%)'],
+    observations: 'GA 0% por Decreto Supremo N° 5516 (Línea Negra).',
+    normativa: ['Decreto Supremo N° 5516 — Línea Negra (GA 0%)'],
   },
   {
     id: 'computadora_escritorio',
@@ -48,8 +48,8 @@ export const PRODUCTS: Product[] = [
     ga_rate: 0,
     ice_rate: 0,
     permits: [],
-    observations: 'GA 0% por Decreto Supremo 2026 (Línea Negra).',
-    normativa: ['Decreto Supremo 2026 — Línea Negra (GA 0%)'],
+    observations: 'GA 0% por Decreto Supremo N° 5516 (Línea Negra).',
+    normativa: ['Decreto Supremo N° 5516 — Línea Negra (GA 0%)'],
   },
   {
     id: 'television',
