@@ -53,6 +53,13 @@ export function CalculatorScreen() {
     );
   }, [countrySearch]);
 
+  function sanitizeDecimal(value: string, max = 9_999_999): string {
+    const clean = value.replace(/[^\d.]/g, '').replace(/^(\d*\.?\d{0,2}).*/, '$1');
+    const num = parseFloat(clean);
+    if (!isNaN(num) && num > max) return String(max);
+    return clean;
+  }
+
   const canCalculate =
     selectedProduct !== null &&
     selectedCountry !== null &&
@@ -192,7 +199,8 @@ export function CalculatorScreen() {
                 placeholder="0.00"
                 keyboardType="decimal-pad"
                 value={cifValue}
-                onChangeText={setCifValue}
+                onChangeText={v => setCifValue(sanitizeDecimal(v))}
+                maxLength={12}
               />
             </View>
 
@@ -206,7 +214,8 @@ export function CalculatorScreen() {
                     placeholder="150.00 (aproximado)"
                     keyboardType="decimal-pad"
                     value={fleteValue}
-                    onChangeText={setFleteValue}
+                    onChangeText={v => setFleteValue(sanitizeDecimal(v, 9999))}
+                    maxLength={8}
                   />
                 </View>
                 <Text style={styles.hint}>

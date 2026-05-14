@@ -2,12 +2,12 @@ import { initializeApp, getApps } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyA0Mdt0HINiwqqgaD3kC-8oU2SY0rnrRnc',
-  authDomain: 'consultora-aduanera.firebaseapp.com',
-  projectId: 'consultora-aduanera',
-  storageBucket: 'consultora-aduanera.firebasestorage.app',
-  messagingSenderId: '42535260176',
-  appId: '1:42535260176:web:ecef36d5f2b4c55770fa95',
+  apiKey: process.env.EXPO_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.EXPO_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.EXPO_PUBLIC_FIREBASE_APP_ID,
 };
 
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];

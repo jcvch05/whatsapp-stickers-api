@@ -103,7 +103,11 @@ export function AboutScreen() {
           </Text>
           <TouchableOpacity
             style={styles.aforitoBtn}
-            onPress={() => Linking.openURL('https://aforito.com')}
+            onPress={async () => {
+              const url = 'https://aforito.com';
+              const supported = await Linking.canOpenURL(url);
+              if (supported) Linking.openURL(url);
+            }}
           >
             <Text style={styles.aforitmoBtnText}>🌐 Visitar aforito.com</Text>
           </TouchableOpacity>

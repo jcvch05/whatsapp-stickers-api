@@ -53,7 +53,8 @@ export async function getDecretosParaPartida(partida: string): Promise<KBDecreto
     );
     const snap = await getDocs(q);
     return snap.docs.map(d => ({ id: d.id, ...d.data() } as KBDecreto));
-  } catch {
+  } catch (err) {
+    console.warn('[KB] getDecretosParaPartida error:', err);
     return [];
   }
 }
@@ -70,7 +71,8 @@ export async function getProductoKB(partida: string): Promise<KBProducto | null>
     if (snap.empty) return null;
     const d = snap.docs[0];
     return { id: d.id, ...d.data() } as KBProducto;
-  } catch {
+  } catch (err) {
+    console.warn('[KB] getProductoKB error:', err);
     return null;
   }
 }
@@ -85,7 +87,8 @@ export async function getDecretosVigentes(): Promise<KBDecreto[]> {
     );
     const snap = await getDocs(q);
     return snap.docs.map(d => ({ id: d.id, ...d.data() } as KBDecreto));
-  } catch {
+  } catch (err) {
+    console.warn('[KB] getDecretosVigentes error:', err);
     return [];
   }
 }
@@ -95,7 +98,8 @@ export async function getAcuerdosKB() {
   try {
     const snap = await getDocs(collection(db, 'kb_acuerdos'));
     return snap.docs.map(d => ({ id: d.id, ...d.data() }));
-  } catch {
+  } catch (err) {
+    console.warn('[KB] getAcuerdosKB error:', err);
     return [];
   }
 }

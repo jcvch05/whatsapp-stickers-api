@@ -2,6 +2,8 @@ node_modules/
 .expo/
 dist/
 .env
+.env.local
+.env.*.local
 *.jks
 *.p8
 *.p12
@@ -9,3 +11,6 @@ dist/
 *.mobileprovision
 *.orig.*
 web-build/
+serviceAccountKey.json
+*serviceAccount*.json
+google-service-account.json
