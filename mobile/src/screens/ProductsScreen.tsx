@@ -120,7 +120,7 @@ export function ProductsScreen() {
                   value={`${detailProduct.ice_rate}%`}
                 />
               )}
-              <DetailRow label="IVA Importación" value="13%" />
+              <DetailRow label="IVA Importación" value="14.94%" />
 
               {detailProduct.permits.length > 0 && (
                 <View style={styles.detailSection}>

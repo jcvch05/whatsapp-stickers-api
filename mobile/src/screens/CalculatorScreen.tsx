@@ -236,7 +236,7 @@ export function CalculatorScreen() {
             disabled={!canCalculate || loading}
           >
             <Text style={styles.calcBtnText}>
-              {loading ? '🔄  Consultando KB…' : '⚖️  Calcular Impuestos'}
+              {loading ? '🔄  Consultando KB…' : 'Calcular Impuestos'}
             </Text>
           </TouchableOpacity>
 

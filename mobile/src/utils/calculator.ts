@@ -5,7 +5,7 @@ import { AGREEMENTS, getAgreementByCode } from '../data/countries';
 export const BCB_EXCHANGE_RATE = 6.96; // BOB por USD
 
 // IVA importación efectivo = 14.94% (tasa real aplicable en importaciones)
-const IVA_RATE = 14.94;
+export const IVA_RATE = 14.94;
 
 export function calculateTaxes(input: CalculationInput): CalculationResult {
   const { product, country, cifValue, cifCurrency, cifLocation, fleteAricaLaPaz } = input;

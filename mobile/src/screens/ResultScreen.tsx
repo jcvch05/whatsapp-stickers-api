@@ -171,7 +171,7 @@ export function ResultScreen() {
             <Text style={styles.formula}>ICE = (CIF + GA) × {taxes.iceRate}%</Text>
           )}
           <Text style={styles.formula}>
-            IVA = (CIF + GA{taxes.iceRate > 0 ? ' + ICE' : ''}) × 13%
+            IVA = (CIF + GA{taxes.iceRate > 0 ? ' + ICE' : ''}) × {taxes.ivaRate}%
           </Text>
           <Text style={styles.formula}>Total = CIF + GA + {taxes.iceRate > 0 ? 'ICE + ' : ''}IVA</Text>
           <Text style={styles.hint}>

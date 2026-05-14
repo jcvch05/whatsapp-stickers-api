@@ -86,4 +86,5 @@ export type MainTabsParamList = {
   Products: undefined;
   Agreements: undefined;
   About: undefined;
+  Settings: undefined;
 };
