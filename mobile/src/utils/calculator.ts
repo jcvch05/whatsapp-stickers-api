@@ -4,7 +4,7 @@ import { AGREEMENTS, getAgreementByCode } from '../data/countries';
 // Tipo de cambio oficial BCB (Banco Central de Bolivia)
 export const BCB_EXCHANGE_RATE = 6.96; // BOB por USD
 
-// IVA importación = 13% (Ley 843)
+// IVA importación efectivo = 14.94% (tasa real aplicable en importaciones)
 const IVA_RATE = 14.94;
 
 export function calculateTaxes(input: CalculationInput): CalculationResult {
@@ -49,7 +49,7 @@ export function calculateTaxes(input: CalculationInput): CalculationResult {
   const iceBase = cifUSD + gaAmount;
   const iceAmount = iceBase * (product.ice_rate / 100);
 
-  // IVA = (CIF + GA + ICE) × 13%
+  // IVA = (CIF + GA + ICE) × 14.94%
   const ivaBase = cifUSD + gaAmount + iceAmount;
   const ivaAmount = ivaBase * (IVA_RATE / 100);
 
