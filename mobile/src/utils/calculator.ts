@@ -5,7 +5,7 @@ import { AGREEMENTS, getAgreementByCode } from '../data/countries';
 export const BCB_EXCHANGE_RATE = 6.96; // BOB por USD
 
 // IVA importación = 13% (Ley 843)
-const IVA_RATE = 13;
+const IVA_RATE = 14.94;
 
 export function calculateTaxes(input: CalculationInput): CalculationResult {
   const { product, country, cifValue, cifCurrency, cifLocation, fleteAricaLaPaz } = input;
