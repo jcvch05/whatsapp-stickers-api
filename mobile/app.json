@@ -1,8 +1,8 @@
 {
   "expo": {
     "newArchEnabled": false,
-    "name": "Aforito Aduanas",
-    "slug": "aforito-aduanas",
+    "name": "AFORITO Calc",
+    "slug": "aforito-calc",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/icon.png",
@@ -14,7 +14,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.aforito.aduanas",
+      "bundleIdentifier": "com.aforito.calc",
       "buildNumber": "1"
     },
     "android": {
@@ -22,7 +22,7 @@
         "foregroundImage": "./src/assets/adaptive-icon.png",
         "backgroundColor": "#C8102E"
       },
-      "package": "com.aforito.aduanas",
+      "package": "com.aforito.calc",
       "versionCode": 1,
       "permissions": []
     },

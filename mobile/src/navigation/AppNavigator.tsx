@@ -45,7 +45,7 @@ export function AppNavigator() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="MainTabs" component={MainTabs} options={{ headerShown:false }}/>
-        <Stack.Screen name="Result" component={ResultScreen} options={{ title:'Resultado del Cálculo', headerStyle:{ backgroundColor:colors.primary }, headerTintColor:colors.textWhite, headerTitleStyle:{ fontWeight:'700' } }}/>
+        <Stack.Screen name="Result" component={ResultScreen} options={{ title:'Resultado del Cálculo', headerBackTitle:'Volver', headerStyle:{ backgroundColor:colors.primary }, headerTintColor:colors.textWhite, headerTitleStyle:{ fontWeight:'700' } }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

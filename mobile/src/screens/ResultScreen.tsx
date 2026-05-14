@@ -23,7 +23,7 @@ export function ResultScreen() {
 
   function handleShare() {
     const text = buildShareText(result);
-    Share.share({ message: text, title: 'Cálculo Aduanero Bolivia - Aforito' });
+    Share.share({ message: text, title: 'Cálculo Aduanero Bolivia - AFORITO Calc' });
   }
 
   return (
@@ -190,7 +190,7 @@ function buildShareText(result: CalculationResult): string {
   const { input, taxes } = result;
   const { product, country } = input;
   return `
-🇧🇴 CÁLCULO ADUANERO BOLIVIA - AFORITO
+🇧🇴 CÁLCULO ADUANERO BOLIVIA - AFORITO Calc
 ━━━━━━━━━━━━━━━━━━
 📦 Producto: ${product.name}
 📌 Partida: ${product.partida}
@@ -203,6 +203,6 @@ ${taxes.iceRate > 0 ? `📊 ICE (${taxes.iceRate}%): ${formatCurrency(taxes.iceA
 ✅ TOTAL IMPUESTOS: ${formatCurrency(taxes.totalTaxesUSD, 'USD')} / ${formatCurrency(taxes.totalTaxesBOB, 'BOB')}
 💰 TOTAL A PAGAR: ${formatCurrency(taxes.totalToPayUSD, 'USD')} / ${formatCurrency(taxes.totalToPayBOB, 'BOB')}
 ━━━━━━━━━━━━━━━━━━
-Calculado con Aforito Aduanas
+Calculado con AFORITO Calc
   `.trim();
 }

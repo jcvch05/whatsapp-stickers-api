@@ -22,9 +22,8 @@ export function AboutScreen() {
     <SafeAreaView style={[s.safe,{backgroundColor:colors.background}]}>
       <ScrollView contentContainerStyle={s.container}>
         <View style={[s.header,{backgroundColor:colors.primary}]}>
-          <Text style={[s.appName,{fontSize:scale(32),color:colors.textWhite}]}>AFORITO</Text>
+          <Text style={[s.appName,{fontSize:scale(28),color:colors.textWhite}]}>AFORITO Calc</Text>
           <Text style={[s.appTagline,{fontSize:scale(14),color:'rgba(255,255,255,0.85)'}]}>Calculadora Aduanera Bolivia</Text>
-          <Text style={[s.appVersion,{fontSize:scale(11),color:'rgba(255,255,255,0.6)'}]}>v1.0 · NANDINA 2024</Text>
         </View>
         <View style={[s.rateCard,{backgroundColor:colors.secondary}]}>
           <Text style={[s.rateLabel,{fontSize:scale(11)}]}>TIPO DE CAMBIO OFICIAL BCB</Text>
