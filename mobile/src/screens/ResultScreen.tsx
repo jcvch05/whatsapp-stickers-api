@@ -1,8 +1,10 @@
 import React, { useMemo } from 'react';
 import {
   View, Text, ScrollView, StyleSheet,
-  TouchableOpacity, SafeAreaView, Share, Platform,
+  TouchableOpacity, Share, Platform,
+  StatusBar,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { RootStackParamList, CalculationResult } from '../types';
 import { formatCurrency, getAgreementName } from '../utils/calculator';
@@ -153,7 +155,7 @@ const rowS = StyleSheet.create({
 
 function makeStyles(colors: any) {
   return StyleSheet.create({
-    safe: { flex: 1, backgroundColor: colors.background },
+    safe: { flex: 1, paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0, backgroundColor: colors.background },
     container: { padding: SPACING.md, paddingBottom: 40 },
     totalCard: {
       backgroundColor: colors.primary, borderRadius: RADIUS.xl, padding: SPACING.lg,

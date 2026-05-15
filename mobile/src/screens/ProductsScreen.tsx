@@ -1,8 +1,11 @@
 import React, { useState, useMemo } from 'react';
 import {
   View, Text, TextInput, FlatList, TouchableOpacity,
-  StyleSheet, SafeAreaView, Modal, ScrollView,
+  StyleSheet, Modal, ScrollView,
+  Platform,
+  StatusBar,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { PRODUCTS, PRODUCT_CATEGORIES, searchProducts } from '../data/products';
 import { Product } from '../types';
 import { SPACING, RADIUS } from '../styles/theme';
@@ -170,7 +173,7 @@ const drS = StyleSheet.create({
 
 function makeStyles(colors: any) {
   return StyleSheet.create({
-    safe: { flex: 1, backgroundColor: colors.background },
+    safe: { flex: 1, paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0, backgroundColor: colors.background },
     topBar: { backgroundColor: colors.primary, padding: SPACING.md, paddingBottom: 14 },
     topTitle: { fontWeight: '800', color: colors.textWhite },
     topSub: { color: 'rgba(255,255,255,0.75)', marginTop: 2 },

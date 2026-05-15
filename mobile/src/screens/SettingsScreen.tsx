@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, ScrollView, SafeAreaView, StyleSheet, TextInput } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, StyleSheet, TextInput   Platform,
+  StatusBar,
+} from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAppTheme, ThemeName, FontSizeName, DEFAULT_EXCHANGE_RATE } from '../context/ThemeContext';
 import { SPACING, RADIUS } from '../styles/theme';
 const THEME_OPTIONS = [
@@ -84,7 +87,7 @@ export function SettingsScreen() {
   );
 }
 const s = StyleSheet.create({
-  safe:{flex:1}, container:{padding:SPACING.md,paddingBottom:40},
+  safe:{flex:1,paddingTop:Platform.OS==='android'?StatusBar.currentHeight:0}, container:{padding:SPACING.md,paddingBottom:40},
   pageTitle:{fontWeight:'800',marginBottom:SPACING.lg},
   sectionTitle:{fontWeight:'700',letterSpacing:1,marginBottom:8,marginTop:SPACING.md},
   card:{borderRadius:RADIUS.md,borderWidth:1,overflow:'hidden',marginBottom:8},

@@ -1,5 +1,8 @@
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, ScrollView, StyleSheet   Platform,
+  StatusBar,
+} from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { SPACING, RADIUS } from '../styles/theme';
 import { IVA_RATE } from '../utils/calculator';
 import { useAppTheme } from '../context/ThemeContext';
@@ -92,7 +95,7 @@ function AR({flag,name,benefit,colors,scale}:{flag:string;name:string;benefit:st
   );
 }
 const s = StyleSheet.create({
-  safe:{flex:1}, container:{padding:SPACING.md,paddingBottom:40},
+  safe:{flex:1,paddingTop:Platform.OS==='android'?StatusBar.currentHeight:0}, container:{padding:SPACING.md,paddingBottom:40},
   header:{borderRadius:RADIUS.xl,padding:SPACING.lg,alignItems:'center',marginBottom:SPACING.md},
   appName:{fontWeight:'900',letterSpacing:3}, appTagline:{marginTop:4}, appVersion:{marginTop:6},
   rateCard:{borderRadius:RADIUS.md,padding:14,alignItems:'center',marginBottom:SPACING.md},

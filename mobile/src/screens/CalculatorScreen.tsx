@@ -1,8 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import {
   View, Text, TextInput, TouchableOpacity, ScrollView,
-  StyleSheet, Modal, FlatList, SafeAreaView, Platform, KeyboardAvoidingView,
+  StyleSheet, Modal, FlatList, Platform, KeyboardAvoidingView,
+  StatusBar,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList, Currency, CIFLocation, Product, Country } from '../types';
@@ -241,7 +243,7 @@ export function CalculatorScreen() {
 
 function makeStyles(colors: any) {
   return StyleSheet.create({
-    safe: { flex: 1, backgroundColor: colors.background },
+    safe: { flex: 1, paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0, backgroundColor: colors.background },
     container: { padding: SPACING.md, paddingBottom: 32 },
     header: { backgroundColor: colors.primary, borderRadius: RADIUS.lg, padding: SPACING.lg, marginBottom: SPACING.md, alignItems: 'center' },
     headerTitle: { fontWeight: '800', color: colors.textWhite, letterSpacing: 0.5 },
