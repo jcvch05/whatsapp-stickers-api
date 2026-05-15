@@ -9,7 +9,6 @@ export const THEMES: Record<ThemeName,ThemeColors> = {
   sepia:{...BASE,background:'#F4ECD8',white:'#FDF6E3',cardBg:'#FDF6E3',border:'#D4B896',borderLight:'#EAD9BE',textPrimary:'#3B2A1A',textSecondary:'#6B4E35',textMuted:'#9B7A5A',tabInactive:'#9B7A5A',formulaBg:'#3B2A1A',formulaText:'#F4ECD8'},
   blue_pastel:{...BASE,background:'#EBF4FB',white:'#FFFFFF',cardBg:'#FFFFFF',border:'#B8D9F0',borderLight:'#D6EBF8',textPrimary:'#1A2E3D',textSecondary:'#3A5F7A',textMuted:'#6A8FA8',tabInactive:'#7AAEC8',formulaBg:'#1A2E3D',formulaText:'#EBF4FB'},
 };
-export const DEFAULT_EXCHANGE_RATE = 6.96;
 export const FONT_SCALES: Record<FontSizeName,number> = { small:0.85, medium:1.0, large:1.2 };
 export const DEFAULT_EXCHANGE_RATE = 6.96;
 interface ThemeContextValue { theme:ThemeName;fontSize:FontSizeName;colors:ThemeColors;scale:(n:number)=>number;exchangeRate:number;setTheme:(t:ThemeName)=>void;setFontSize:(f:FontSizeName)=>void;setExchangeRate:(r:number)=>void; }

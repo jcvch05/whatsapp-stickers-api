@@ -49,23 +49,6 @@ export function SettingsScreen() {
           </TouchableOpacity>
         </View>
 
-        <Text style={[s.sectionTitle, { color: colors.textMuted, fontSize: scale(12) }]}>TIPO DE CAMBIO (BOB por 1 USD)</Text>
-        <View style={[s.card, { backgroundColor: colors.white, borderColor: colors.border }]}>
-          <View style={[s.rateRow, { borderBottomColor: colors.borderLight }]}>
-            <Text style={[s.rateLabel, { color: colors.textSecondary, fontSize: scale(14) }]}>1 USD =</Text>
-            <TextInput
-              style={[s.rateInput, { color: colors.textPrimary, borderColor: colors.border, fontSize: scale(16) }]}
-              value={rateInput}
-              onChangeText={handleRateChange}
-              keyboardType="decimal-pad"
-              maxLength={7}
-            />
-            <Text style={[s.rateSuffix, { color: colors.textSecondary, fontSize: scale(14) }]}>BOB</Text>
-          </View>
-          <TouchableOpacity style={[s.resetBtn, { borderTopColor: colors.borderLight }]} onPress={resetRate}>
-            <Text style={[s.resetBtnText, { color: colors.textMuted, fontSize: scale(12) }]}>Restablecer valor oficial BCB ({DEFAULT_EXCHANGE_RATE})</Text>
-          </TouchableOpacity>
-        </View>
         <Text style={[s.sectionTitle, { color: colors.textMuted, fontSize: scale(12) }]}>TEMA DE COLOR</Text>
         <View style={[s.card, { backgroundColor: colors.white, borderColor: colors.border }]}>
           {THEME_OPTIONS.map((opt) => (
