@@ -11,6 +11,7 @@ export const THEMES: Record<ThemeName,ThemeColors> = {
 };
 export const DEFAULT_EXCHANGE_RATE = 6.96;
 export const FONT_SCALES: Record<FontSizeName,number> = { small:0.85, medium:1.0, large:1.2 };
+export const DEFAULT_EXCHANGE_RATE = 6.96;
 interface ThemeContextValue { theme:ThemeName;fontSize:FontSizeName;colors:ThemeColors;scale:(n:number)=>number;exchangeRate:number;setTheme:(t:ThemeName)=>void;setFontSize:(f:FontSizeName)=>void;setExchangeRate:(r:number)=>void; }
 const ThemeContext = createContext<ThemeContextValue>({ theme:'light',fontSize:'medium',colors:THEMES.light,scale:(n)=>n,exchangeRate:DEFAULT_EXCHANGE_RATE,setTheme:()=>{},setFontSize:()=>{},setExchangeRate:()=>{} });
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
