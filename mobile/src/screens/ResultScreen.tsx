@@ -1,10 +1,9 @@
 import React, { useMemo } from 'react';
 import {
   View, Text, ScrollView, StyleSheet,
-  TouchableOpacity, Share, Platform,
+  TouchableOpacity, SafeAreaView, Share, Platform,
   StatusBar,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { RootStackParamList, CalculationResult } from '../types';
 import { formatCurrency, getAgreementName } from '../utils/calculator';

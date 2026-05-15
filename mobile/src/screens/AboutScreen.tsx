@@ -1,8 +1,5 @@
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet   Platform,
-  StatusBar,
-} from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { View, Text, ScrollView, StyleSheet, SafeAreaView, Platform, StatusBar } from 'react-native';
 import { SPACING, RADIUS } from '../styles/theme';
 import { IVA_RATE } from '../utils/calculator';
 import { useAppTheme } from '../context/ThemeContext';

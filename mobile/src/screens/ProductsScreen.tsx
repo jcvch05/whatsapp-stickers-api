@@ -1,11 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import {
   View, Text, TextInput, FlatList, TouchableOpacity,
-  StyleSheet, Modal, ScrollView,
+  StyleSheet, SafeAreaView, Modal, ScrollView,
   Platform,
   StatusBar,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { PRODUCTS, PRODUCT_CATEGORIES, searchProducts } from '../data/products';
 import { Product } from '../types';
 import { SPACING, RADIUS } from '../styles/theme';

@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, ScrollView, StyleSheet, TextInput   Platform,
-  StatusBar,
-} from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { View, Text, TouchableOpacity, ScrollView, SafeAreaView, StyleSheet, TextInput, Platform, StatusBar } from 'react-native';
 import { useAppTheme, ThemeName, FontSizeName, DEFAULT_EXCHANGE_RATE } from '../context/ThemeContext';
 import { SPACING, RADIUS } from '../styles/theme';
 const THEME_OPTIONS = [

@@ -1,11 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import {
   View, Text, FlatList, TouchableOpacity,
-  StyleSheet, Modal, ScrollView,
+  StyleSheet, SafeAreaView, Modal, ScrollView,
   Platform,
   StatusBar,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { AGREEMENTS, COUNTRIES, getCountryAgreements } from '../data/countries';
 import { Agreement, Country } from '../types';
 import { SPACING, RADIUS } from '../styles/theme';
