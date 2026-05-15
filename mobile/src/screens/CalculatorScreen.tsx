@@ -17,7 +17,7 @@ type NavProp = NativeStackNavigationProp<RootStackParamList, 'MainTabs'>;
 
 export function CalculatorScreen() {
   const navigation = useNavigation<NavProp>();
-  const { colors, scale } = useAppTheme();
+  const { colors, scale, exchangeRate } = useAppTheme();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
   const [cifValue, setCifValue] = useState('');
@@ -70,8 +70,8 @@ export function CalculatorScreen() {
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} style={{ flex: 1 }}>
         <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
           <View style={styles.header}>
-            <Text style={[styles.headerTitle, { fontSize: scale(22) }]}>Calculadora Aduanera</Text>
-            <Text style={[styles.headerSubtitle, { fontSize: scale(12) }]}>Bolivia · NANDINA · Aduana Nacional</Text>
+            <Text style={[styles.headerTitle, { fontSize: scale(26) }]}>AFORITO Calc</Text>
+            <Text style={[styles.headerSubtitle, { fontSize: scale(13) }]}>Calculadora Aduanera Bolivia</Text>
           </View>
 
           <View style={styles.section}>
@@ -154,7 +154,7 @@ export function CalculatorScreen() {
                 <Text style={[styles.hint, { fontSize: scale(11) }]}>El flete promedio Arica–La Paz es de $100–$300 USD dependiendo del peso/volumen.</Text>
               </View>
             )}
-            <Text style={[styles.hint, { fontSize: scale(11) }]}>Tipo de cambio oficial BCB: 1 USD = {BCB_EXCHANGE_RATE} BOB</Text>
+            <Text style={[styles.hint, { fontSize: scale(11) }]}>Tipo de cambio oficial BCB: 1 USD = {exchangeRate} BOB</Text>
           </View>
 
           <TouchableOpacity

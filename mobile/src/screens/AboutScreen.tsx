@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet, SafeAreaView } from 'react-native';
 import { SPACING, RADIUS } from '../styles/theme';
-import { BCB_EXCHANGE_RATE, IVA_RATE } from '../utils/calculator';
+import { IVA_RATE } from '../utils/calculator';
 import { useAppTheme } from '../context/ThemeContext';
 export function AboutScreen() {
-  const { colors, scale } = useAppTheme();
+  const { colors, scale, exchangeRate } = useAppTheme();
   const taxRates = [
     { label:'Gravamen Arancelario (GA)', rates:'0%, 5%, 10%, 15%, 20%, 30%', note:'Varía por producto y origen' },
     { label:'IVA Importación', rates:`${IVA_RATE}%`, note:'Aplica a (CIF + GA + ICE)' },
@@ -27,7 +27,7 @@ export function AboutScreen() {
         </View>
         <View style={[s.rateCard,{backgroundColor:colors.secondary}]}>
           <Text style={[s.rateLabel,{fontSize:scale(11)}]}>TIPO DE CAMBIO OFICIAL BCB</Text>
-          <Text style={[s.rateValue,{fontSize:scale(24)}]}>1 USD = {BCB_EXCHANGE_RATE} BOB</Text>
+          <Text style={[s.rateValue,{fontSize:scale(24)}]}>1 USD = {exchangeRate} BOB</Text>
           <Text style={[s.rateNote,{fontSize:scale(11)}]}>Banco Central de Bolivia · Tasa oficial de importación</Text>
         </View>
         <SectionTitle title="Estructura de Impuestos Aduaneros"/>
