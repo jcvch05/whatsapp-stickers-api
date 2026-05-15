@@ -15,7 +15,10 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.aforito.calc",
-      "buildNumber": "1"
+      "buildNumber": "1",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -33,7 +36,10 @@
       "expo-font"
     ],
     "extra": {
-      "apiUrl": "http://localhost:8000"
+      "apiUrl": "http://localhost:8000",
+      "eas": {
+        "projectId": "034f303f-4086-498e-bca0-a87df95f00e1"
+      }
     }
   }
 }
