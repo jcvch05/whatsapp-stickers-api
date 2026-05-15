@@ -16,10 +16,12 @@ const FONT_OPTIONS = [
 export function SettingsScreen() {
   const { colors, scale, theme, fontSize, exchangeRate, setTheme, setFontSize, setExchangeRate } = useAppTheme();
   const [rateInput, setRateInput] = useState(String(exchangeRate));
-  function handleRateChange(val) {
+  function handleRateChange(val: string) {
     const clean = val.replace(/[^\d.]/g, '').replace(/^(\d*\.?\d{0,2}).*/, '$1');
     setRateInput(clean);
-    const num = parseFloat(clean);
+  }
+  function applyRate() {
+    const num = parseFloat(rateInput);
     if (!isNaN(num) && num > 0) setExchangeRate(num);
   }
   function resetRate() {
@@ -43,6 +45,9 @@ export function SettingsScreen() {
               maxLength={7}
             />
             <Text style={[s.rateSuffix, { color: colors.textSecondary, fontSize: scale(14) }]}>BOB</Text>
+            <TouchableOpacity style={[s.applyBtn, { backgroundColor: colors.accent }]} onPress={applyRate}>
+              <Text style={[s.applyBtnText, { fontSize: scale(13) }]}>✓</Text>
+            </TouchableOpacity>
           </View>
           <TouchableOpacity style={[s.resetBtn, { borderTopColor: colors.borderLight }]} onPress={resetRate}>
             <Text style={[s.resetBtnText, { color: colors.textMuted, fontSize: scale(12) }]}>Restablecer valor oficial BCB ({DEFAULT_EXCHANGE_RATE})</Text>
@@ -93,6 +98,8 @@ const s = StyleSheet.create({
   rateLabel:{fontWeight:'500'},
   rateInput:{flex:1,borderWidth:1,borderRadius:8,paddingHorizontal:10,paddingVertical:6,fontWeight:'700',textAlign:'center'},
   rateSuffix:{fontWeight:'500'},
+  applyBtn:{borderRadius:6,paddingHorizontal:10,paddingVertical:6,justifyContent:'center',alignItems:'center'},
+  applyBtnText:{color:'#FFFFFF',fontWeight:'800'},
   resetBtn:{padding:12,alignItems:'center'},
   resetBtnText:{fontWeight:'500'},
 });
