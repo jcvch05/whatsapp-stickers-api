@@ -154,7 +154,7 @@ const rowS = StyleSheet.create({
 
 function makeStyles(colors: any) {
   return StyleSheet.create({
-    safe: { flex: 1, paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0, backgroundColor: colors.background },
+    safe: { flex: 1, paddingTop: Platform.OS === 'android' ? (StatusBar.currentHeight ?? 0) : 0, backgroundColor: colors.background },
     container: { padding: SPACING.md, paddingBottom: 40 },
     totalCard: {
       backgroundColor: colors.primary, borderRadius: RADIUS.xl, padding: SPACING.lg,

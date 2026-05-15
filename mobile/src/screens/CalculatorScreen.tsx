@@ -9,7 +9,6 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList, Currency, CIFLocation, Product, Country } from '../types';
 import { PRODUCTS, searchProducts } from '../data/products';
 import { COUNTRIES } from '../data/countries';
-import { BCB_EXCHANGE_RATE } from '../utils/calculator';
 import { calculateTaxesWithKB } from '../utils/calculatorWithKB';
 import { SPACING, RADIUS } from '../styles/theme';
 import { useAppTheme } from '../context/ThemeContext';
@@ -242,7 +241,7 @@ export function CalculatorScreen() {
 
 function makeStyles(colors: any) {
   return StyleSheet.create({
-    safe: { flex: 1, paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0, backgroundColor: colors.background },
+    safe: { flex: 1, paddingTop: Platform.OS === 'android' ? (StatusBar.currentHeight ?? 0) : 0, backgroundColor: colors.background },
     container: { padding: SPACING.md, paddingBottom: 32 },
     header: { backgroundColor: colors.primary, borderRadius: RADIUS.lg, padding: SPACING.lg, marginBottom: SPACING.md, alignItems: 'center' },
     headerTitle: { fontWeight: '800', color: colors.textWhite, letterSpacing: 0.5 },

@@ -84,7 +84,7 @@ export function SettingsScreen() {
   );
 }
 const s = StyleSheet.create({
-  safe:{flex:1,paddingTop:Platform.OS==='android'?StatusBar.currentHeight:0}, container:{padding:SPACING.md,paddingBottom:40},
+  safe:{flex:1,paddingTop:Platform.OS==='android'?(StatusBar.currentHeight??0):0}, container:{padding:SPACING.md,paddingBottom:40},
   pageTitle:{fontWeight:'800',marginBottom:SPACING.lg},
   sectionTitle:{fontWeight:'700',letterSpacing:1,marginBottom:8,marginTop:SPACING.md},
   card:{borderRadius:RADIUS.md,borderWidth:1,overflow:'hidden',marginBottom:8},

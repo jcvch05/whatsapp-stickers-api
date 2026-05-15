@@ -183,7 +183,7 @@ const chipS = StyleSheet.create({
 
 function makeStyles(colors: any) {
   return StyleSheet.create({
-    safe: { flex: 1, paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0, backgroundColor: colors.background },
+    safe: { flex: 1, paddingTop: Platform.OS === 'android' ? (StatusBar.currentHeight ?? 0) : 0, backgroundColor: colors.background },
     topBar: { backgroundColor: colors.primary, padding: SPACING.md, paddingBottom: 14 },
     topTitle: { fontWeight: '800', color: colors.textWhite },
     topSub: { color: 'rgba(255,255,255,0.75)', marginTop: 2 },

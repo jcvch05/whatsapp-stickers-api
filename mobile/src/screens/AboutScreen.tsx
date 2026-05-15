@@ -92,7 +92,7 @@ function AR({flag,name,benefit,colors,scale}:{flag:string;name:string;benefit:st
   );
 }
 const s = StyleSheet.create({
-  safe:{flex:1,paddingTop:Platform.OS==='android'?StatusBar.currentHeight:0}, container:{padding:SPACING.md,paddingBottom:40},
+  safe:{flex:1,paddingTop:Platform.OS==='android'?(StatusBar.currentHeight??0):0}, container:{padding:SPACING.md,paddingBottom:40},
   header:{borderRadius:RADIUS.xl,padding:SPACING.lg,alignItems:'center',marginBottom:SPACING.md},
   appName:{fontWeight:'900',letterSpacing:3}, appTagline:{marginTop:4}, appVersion:{marginTop:6},
   rateCard:{borderRadius:RADIUS.md,padding:14,alignItems:'center',marginBottom:SPACING.md},
